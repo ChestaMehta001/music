@@ -9,7 +9,26 @@ function Navbar({ className }: { className?: string }) {
   return (
     <div
     className={cn("fixed top-10 inset-x-0 max-w-2xl mx-auto z-50", className)}
-    >navbar</div>
+    ><Menu setActive={setActive}>
+      <Link href={"/"}>
+        <MenuItem setActive={setActive} active={active} item="Home">
+        </MenuItem>
+      </Link>
+      <MenuItem setActive={setActive} active={active} item="our courses">
+      <div className="flex flex-col space-y-4 text-sm" >
+      <HoveredLink href="/courses">all courses</HoveredLink>
+      <HoveredLink href="/courses">basic music theory</HoveredLink>
+      <HoveredLink href="/courses">advanced composition</HoveredLink>
+      <HoveredLink href="/courses">song writing</HoveredLink>
+      <HoveredLink href="/courses">music production</HoveredLink>
+      </div>
+      </MenuItem>
+      <Link href={"/contact"}>
+        <MenuItem setActive={setActive} active={active} item="contact us">
+        </MenuItem>
+      </Link>
+    </Menu>
+    </div>
   )
 }
 
